@@ -31,9 +31,9 @@ console.log('Esercizi pressi da Codewars');
 // const pippo = [1, 5.2, 4, 0, -1]
 
 // function sum (numbers) {
-  
+
 //   let somma = 0;
-  
+
 //   for(let i = 0; i < numbers.length; i++){
 
 //     if (numbers.length === 0) {
@@ -42,7 +42,7 @@ console.log('Esercizi pressi da Codewars');
 //             somma += numbers[i];
 //         }
 //   }  
-  
+
 //   return somma;
 // }
 
@@ -63,7 +63,7 @@ console.log('Esercizi pressi da Codewars');
 // const pluto = 35231
 
 // function digitize(n) {
-    
+
 //    return n.toString().split('').reverse().map(Number);
 // //uso toString per convertire il numero in stringa
 // //uso split('') per dividere ogni carattere della stringa in un array
@@ -72,7 +72,7 @@ console.log('Esercizi pressi da Codewars');
 //   }
 
 //   console.log(digitize(pluto));
-  
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -113,7 +113,7 @@ console.log('Esercizi pressi da Codewars');
 // const special = '&&7oh-mamma-mia+-%!!'
 
 // function removeFirstAndLastChar(strArray) {
-    
+
 //     let newString = '';  // inizializzo la variabile newString come stringa vuota per memorizzare il risultato finale.
 
 //    if (strArray.length <= 2) {
@@ -170,17 +170,17 @@ console.log('Esercizi pressi da Codewars');
 //     } else {
 //         return 'ERROR';
 //     }
-    
+
 //     }
-    
+
 //     console.log(meanOfScores(60, 70, 80));
 //     console.log(meanOfScores(20, 20, 19));
 //     console.log(meanOfScores(80, 85, 90));
 //     console.log(meanOfScores(100, 90, 80));
 //     console.log(meanOfScores(80, 80, 30));
 //     console.log(meanOfScores(-40, 'xen', 70));
-    
-    
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //5)Is it a palindrome? (È un palindromo?)
@@ -188,9 +188,9 @@ console.log('Esercizi pressi da Codewars');
 //Un palindromo è una parola, un numero, una frase o un'altra sequenza di simboli che si legge allo stesso modo sia in avanti che al contrario, ad esempio madam o racecar.
 
 // function isPalindrome(str) {
-    
+
 // const string = str.toLowerCase();  //converto la stringa in minuscolo per non fare distinzione tra maiuscole e minuscole
-    
+
 // const reverseString = string.split('').reverse().join('');
 
 // return reverseString === string;
@@ -226,7 +226,7 @@ console.log('Esercizi pressi da Codewars');
 //Il volume di un cuboide si calcola moltiplicando la sua lunghezza, larghezza e altezza. La formula è: Volume = Lunghezza x Larghezza x Altezza.
 
 // function volumeOfACuboid(length, width, height) {
-    
+
 //    const volume = length * width * height;
 
 //    return volume;
@@ -245,7 +245,7 @@ console.log('Esercizi pressi da Codewars');
 //Vincolo: 1 <= month <= 12
 
 // function quarterOfTheYear(month) {    ----  su "Codewars" non funziona
-    
+
 //     if (month >= 1 && month <= 3) {
 //         return 'month ' + month + ' is part of the first quarter';
 //     } else if (month >= 4 && month <= 6) {
@@ -317,29 +317,204 @@ console.log('Esercizi pressi da Codewars');
 
 
 
-function sumOfStrings(input1, input2) {
+// function sumOfStrings(input1, input2) {
 
-if (input1 === '') {
-    input1 = Number('').toString();
-     // per mettere a zero le stringhe vuote, uso Number('') che converte la stringa vuota in 0 e la somma sarà corretta
-     // uso .toString(), in questo modo restituisco 0 come stringa
-} else if (input2 === '') {  
-    input2 = Number('').toString();  // NON MI PRENDE QUESTA CONDIZIONE!
+// let num1 = parseInt(input1); // uso parseInt() per convertire le stringhe in numeri interi
+// let num2 = parseInt(input2); 
+
+// if (input1 === '') {
+//     num1 = 0;  // se la stringa è vuota, la considero come 0
+// }
+// if (input2 === '') {
+//     num2 = 0;  // se la stringa è vuota, la considero come 0
+// } 
+
+// //posso mettere due if separati perchè entrambi devono essere verificati indipendentemente l'uno dall'altro
+
+// let sum = num1 + num2;
+
+// return sum.toString(); // uso toString() per convertire il risultato della somma in una stringa
+// }
+// console.log(sumOfStrings('8', '5'));
+// console.log(sumOfStrings('-7', '5'));
+// console.log(sumOfStrings('', ''));
+// console.log(sumOfStrings('', '3'));
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//10)Hex to Decimal (Da esadecimale a decimale)
+//Completa la funzione che converte un numero esadecimale (fornito come stringa) in un numero decimale.
+
+// function hexToDecimal(num) {
+//   return parseInt(num, 16);  //parseInt() è una funzione integrata in JavaScript che converte una stringa in un numero intero.
+//   // uso parseInt() per convertire la stringa esadecimale in un numero decimale
+//   // il secondo argomento (16) indica che la base del numero è esadecimale
+// }
+
+// // Esempio di utilizzo
+// console.log(hexToDecimal("1A")); // Output: 26
+// console.log(hexToDecimal("FF")); //-> 255
+// console.log(hexToDecimal("A")); //-> 10
+// console.log(hexToDecimal("9C")); //-> 156
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//11)String Cleaning (pulizia delle stringhe)
+//Il tuo capo ha deciso di risparmiare acquistando un software di riconoscimento ottico dei caratteri a basso costo per la scansione di vecchi romanzi nel tuo database. All'inizio sembra catturare le parole correttamente, ma ti accorgi subito che inserisce molti numeri in punti casuali del testo.
+
+// Examples (input -> output)
+
+// '! !'                 -> '! !'
+// '123456789'           -> ''
+// 'This looks5 grea8t!' -> 'This looks great!'
+
+
+//I tuoi colleghi stressati si stanno rivolgendo a te per trovare una soluzione che rimuova tutti i numeri da questo testo confuso. Il tuo programma prenderà una stringa e la pulirà da tutti i caratteri numerici, restituendo una stringa con spaziatura e caratteri speciali ~#$%^&!@*():;"'.,? tutti intatti.
+
+// function stringCleaning(str) {
+
+//     let newString = ''; // inizializzo la variabile newString come stringa vuota per memorizzare il risultato finale.
+
+//     const nbr = '0123456789'; // definisco una stringa contenente tutti i numeri da 0 a 9 
+
+//     for (let i = 0; i < str.length; i++) {
+//         const element = str[i];
+//         if (nbr.includes(element)) { // uso includes() per verificare se l'elemento corrente è un numero
+//             // includes() restituisce true se l'elemento è presente nella stringa nbr, altrimenti restituisce false
+//             // se è un numero, non lo aggiungo a newString
+//             //la funzione includes() è case-sensitive, quindi distingue tra maiuscole e minuscole
+//             //la sintassi corretta è: string.includes(substring) che verifica se la sottostringa è presente nella stringa
+
+//             continue; // se è un numero, salto l'iterazione corrente e passo alla successiva
+//             //continue interrompe l'iterazione corrente del ciclo e passa alla successiva
+//             //e uguale a dire: "se è un numero, non fare nulla e passa al prossimo carattere"
+//             //break invece interrompe completamente il ciclo
+//         }
+
+//         newString = newString + element; // se non è un numero, lo aggiungo a newString
+//     }
+//     return newString; // restituisco la stringa pulita senza numeri
+// }
+
+// console.log(stringCleaning('This looks5 grea8t!'));
+// console.log(stringCleaning('123456789'));
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//12)Beginner Series #4 Cockroach (Serie per principianti n. 4 Scarafaggio)
+//Lo scarafaggio è uno degli insetti più veloci. Scrivi una funzione che prenda la sua velocità in km/h e la restituisca in cm/s, arrotondata per difetto all'intero (= floored).
+
+
+// Per esempio:  1.08 km/h --> 30 cm/s
+
+//Nota! L'input è un numero reale (il tipo effettivo dipende dal linguaggio) ed è >= 0. Il risultato dovrebbe essere un intero.
+
+
+// Per convertire i km/h in cm/s si deve dividere per 3,6. Questa è una conseguenza della relazione tra chilometri orari e metri al secondo, infatti 1 m/s = 3,6 km/h, e dunque 1 km/h = 1/3,6 m/s.
+//conversione da km/h a cm/s:
+//1km = 100000 cm,  1 ora = 3600 secondi
+//allora la relazione cm/s = km/h x 100000/3600
+
+
+// function cockroachSpeed(kmh) {
+
+//     let speedInCmS = Math.floor(kmh*(100000 / 3600));  //Math.floor() in JavaScript serve ad arrotondare un numero per difetto al valore intero più vicino inferiore o uguale al numero stesso.
+
+//     return speedInCmS;
+// }
+
+
+// console.log(cockroachSpeed(1.08));
+// console.log(cockroachSpeed(15));
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//13) You're a square! (Sei un quadrato!)
+//Un quadrato di quadrati
+
+// Ti piacciono i mattoncini da costruzione. Ti piacciono soprattutto i mattoncini quadrati. E quello che ti piace ancora di più è disporli in un quadrato di mattoncini quadrati!
+// Tuttavia, a volte, non puoi disporli in un quadrato. Invece, ti ritrovi con un normale rettangolo! Quelle maledette cose! Se solo avessi un modo per sapere se stai lavorando invano... Aspetta! Ecco fatto! Devi solo controllare se il numero di mattoncini che hai è un quadrato perfetto.
+// Esercizio
+// Dato un numero intero, determina se è un quadrato:
+// In matematica, un numero quadrato o quadrato perfetto è un numero intero che è il quadrato di un intero; in altre parole, è il prodotto di un numero intero per se stesso.
+// I test useranno sempre un numero intero, quindi non preoccuparti nei linguaggi a tipizzazione dinamica.
+
+// Examples
+// -1  =>  false
+//  0  =>  true
+//  3  =>  false
+//  4  =>  true
+// 25  =>  true
+// 26  =>  false
+
+
+// function perfectSquare(nbr) {
+
+//     let n = Math.sqrt(nbr);       // "Math.sqrt() calcola la radice quadrata"
+
+//     if (Number.isInteger(n)) {   // Per verificare una condizione su un numero intero in JavaScript si può usare "Number.isInteger()".
+//         return true;
+//     } else {
+//         return false;
+//     }
+
+// }
+
+// console.log(perfectSquare(-1));
+// console.log(perfectSquare(0));
+// console.log(perfectSquare(3));
+// console.log(perfectSquare(4));
+// console.log(perfectSquare(25));
+// console.log(perfectSquare(26));
+// console.log(perfectSquare(81));
+// console.log(perfectSquare(11));
+// console.log(perfectSquare(47));
+// console.log(perfectSquare(-4));
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//14) Regex validate PIN code (Codice PIN di convalida Regex)
+//Gli sportelli bancomat accettano codici PIN a 4 o 6 cifre, e i codici PIN non possono contenere più di 4 o 6 cifre.
+//Se alla funzione viene passata una stringa PIN valida, restituisce true, altrimenti restituisce false.
+
+// Examples (Input --> Output)
+
+// "1234"   -->  true
+// "12345"  -->  false
+// "a234"   -->  false
+
+function pinValidator(input) {   // RIFARLO!
+
+for (let i = 0; i < input.length; i++) {
+
+    if (input.length === 4 || input.length === 6) {
+        return true;
+    }
+
+    if (input[i].includes('0123456789')) {
+        return true;
+
+    } else if (input[i].includes('abcdefghijklmnopqrstuvwxyz')) {
+        return false;
+    }
+    
+}
 }
 
-let num1 = parseInt(input1); 
-let num2 = parseInt(input2);
+console.log(pinValidator("1234"));
+console.log(pinValidator("12345"));
+console.log(pinValidator("a234"));
+console.log(pinValidator("a2v"));
+console.log(pinValidator("a2341j"));
 
-const sum = num1 + num2;
 
-return sum.toString();
 
-}
-
-console.log(sumOfStrings('8', '5'));
-console.log(sumOfStrings('-7', '5'));
-console.log(sumOfStrings('', ''));
-console.log(sumOfStrings('', '3'));
 
 
 
