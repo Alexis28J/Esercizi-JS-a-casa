@@ -489,29 +489,108 @@ console.log('Esercizi pressi da Codewars');
 // "12345"  -->  false
 // "a234"   -->  false
 
-function pinValidator(input) {   // RIFARLO!
 
-for (let i = 0; i < input.length; i++) {
+//Un regex (espressione regolare) è una sequenza di caratteri che forma un modello di ricerca. 
+// Viene utilizzata per eseguire operazioni di ricerca e manipolazione delle stringhe, come la convalida dei formati di input, 
+// la ricerca di pattern specifici all'interno di un testo o la sostituzione di parti di una stringa.
 
-    if (input.length === 4 || input.length === 6) {
-        return true;
-    }
+// Per risolvere questo esercizio, possiamo utilizzare un'espressione regolare (regex) per verificare se la stringa PIN soddisfa i criteri di validità richiesti: 
+// deve contenere esattamente 4 o 6 cifre numeriche e non deve contenere altri caratteri.
 
-    if (input[i].includes('0123456789')) {
-        return true;
 
-    } else if (input[i].includes('abcdefghijklmnopqrstuvwxyz')) {
-        return false;
-    }
+
+// function pinValidator(pin) {
+//     const regex = /^(\d{4}|\d{6})$/;
+//     return regex.test(String(pin));
+// }
+
+// nella forma lambda sarebbe: 
+//const pinValidator = (pin) => /^(\d{4}|\d{6})$/.test(String(pin));
+
+
+// ^ : Inizio stringa. Indica che il controllo parte dall’inizio del testo.
+// Gruppo (\d{4}|\d{6}): È un gruppo tra parentesi tonde che racchiude un’alternativa:  \d è una metacarattere che corrisponde a qualsiasi cifra numerica, equivalente a [0-9]
+// \d{4}: esattamente 4 cifre     //  |: “oppure”      // \d{6}: esattamente 6 cifre
+// $ : Fine stringa. Impone che la corrispondenza arrivi fino alla fine del testo. Insieme a ^, garantisce che l’intera stringa sia solo 4 o 6 cifre, senza altro prima o dopo.
+// Il metodo .test(stringa) ritorna true se la stringa corrisponde alla regex, altrimenti false.
+
+
+// Perché usare un’espressione letterale:
+// ^(\d{4}|\d{6})$ è chiara e veloce; le parentesi garantiscono che l’“oppure” si applichi all’intera alternativa, non solo a parte di essa.
+// Senza il gruppo, ^\d{4}|\d{6}$ sarebbe ambiguo e sbagliato: applicheresti ^ solo al primo pezzo e $ solo al secondo.
+
+
+
+// console.log(pinValidator("1234"));
+// console.log(pinValidator("12345"));
+// console.log(pinValidator("a234"));
+// console.log(pinValidator("a2v"));
+// console.log(pinValidator("a2341j"));
+// console.log(pinValidator("189356"));
+
+
+// // Non sei obbligato a usare le regex: puoi risolvere l’esercizio con semplici controlli sulla lunghezza della stringa e sul fatto che tutti i caratteri siano cifre.
+// // Ecco un esempio passo a passo senza regex:
+
+
+// function validatePIN(pin) {
+//   // 1. Controllo lunghezza: deve essere 4 oppure 6
+//   if (pin.length !== 4 && pin.length !== 6) {
+//     return false;
+//   }
+
+//   // 2. Controllo che ogni carattere sia una cifra
+//   for (let i = 0; i < pin.length; i++) {
+//     const char = pin[i];
+//     if (char < '0' || char > '9') {  // verifica se il carattere non è una cifra
+//       return false;  // se trova un carattere non numerico, restituisce false
+//     }
+//   }
+
+//   // Se supera entrambi i controlli, è valido
+//   return true;
+// }
+
+// // Esempi
+// console.log(validatePIN("1234"));   // true
+// console.log(validatePIN("12345"));  // false
+// console.log(validatePIN("a234"));   // false
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//15) Third Angle of a Triangle (Il terzo angolo di un triangolo)
+
+// Ti vengono forniti due angoli interni (in gradi) di un triangolo.
+// Scrivi una funzione che restituisca il terzo.
+// Nota: verranno testati solo numeri interi positivi.
+
+
+function thirdAngle(angle1, angle2) {
     
-}
+    //angle1 + angle2 + angle3 = 180;   //la somma dei tre angoli interni di un triangolo deve essere uguale a 180 gradi
+
+    if (angle1 > 0 && angle2 > 0) {
+        const angle3 = 180 - (angle1 + angle2);
+        if (angle1 + angle2 < 180) {
+            return angle3;
+        } else {
+            return 'Errore'
+        }
+    } else {
+        return 'Input NON valido'
+    }
+
 }
 
-console.log(pinValidator("1234"));
-console.log(pinValidator("12345"));
-console.log(pinValidator("a234"));
-console.log(pinValidator("a2v"));
-console.log(pinValidator("a2341j"));
+console.log(thirdAngle(70, 70)); //printa 40, quindi funziona!
+console.log(thirdAngle(-50, 50));  //printa "Input NON valido" quindi funziona!
+console.log(thirdAngle(120, 140));  // printa "Errore" quindi funziona
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 
